@@ -1,0 +1,10 @@
+{
+  "DetailSectionType": {
+    "type": "string",
+    "enum": [
+      "evidence",
+      "list",
+      "grid"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "GridItemDTO": {
+    "type": "object",
+    "properties": {
+      "Title": {
+        "type": "string"
+      },
+      "IsInResume": {
+        "type": "boolean"
+      },
+      "IsInJob": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+}

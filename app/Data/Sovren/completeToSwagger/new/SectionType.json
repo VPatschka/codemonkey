@@ -1,0 +1,15 @@
+{
+  "SectionType": {
+    "type": "string",
+    "enum": [
+      "skills",
+      "jobTitles",
+      "education",
+      "industries",
+      "managementLevel",
+      "certifications",
+      "languages",
+      "executiveType"
+    ]
+  }
+}

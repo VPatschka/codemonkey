@@ -1,0 +1,27 @@
+```json
+"SectionDTO": {
+  "type": "object",
+  "properties": {
+    "Type": {
+      "$ref": "#/components/schemas/SectionType"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Score": {
+      "type": "number",
+      "format": "float"
+    },
+    "Summary": {
+      "type": "string"
+    },
+    "DetailSections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DetailSectionDTO"
+      }
+    }
+  },
+  "additionalProperties": false
+}
+```

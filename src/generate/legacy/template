@@ -1,0 +1,54 @@
+Use included code at the end as a template.
+This template is one class in one file - you'll also generate just one class in one response.
+
+When you use "array" type for some field always include comment with type as is within the template.
+Method "toArray" should just return all fields as is.
+Method "castArray" should return item type for each field with type "array", do not add any other fields.
+  If you would return null, don't include the function at all. Don't include fields that return simple types like "string", "int", "bool" etc.
+
+All fields should start with lowercase letter.
+Always include the namespace, use statements and extends with base class.
+Template:
+```
+<?php
+
+namespace App\Libraries\Sovren\DataTransferObjects\Parser\Fragments\Response\ResumeDataFragments;
+
+use App\Libraries\Sovren\DataTransferObjects\BaseDataTransferObject;
+
+final class ContactInformationData extends BaseDataTransferObject
+{
+    public ?CandidateNameData $candidateName;
+
+    /** @var TelephoneData[]|null */
+    public ?array $telephones;
+
+    /** @var string[]|null */
+    public ?array $emailAddresses;
+
+    public ?LocationData $location;
+
+    /** @var WebAddressData[]|null */
+    public ?array $webAddresses;
+
+    public function toArray(): array
+    {
+        return [
+            'candidateName' => $this->candidateName,
+            'telephones' => $this->telephones,
+            'emailAddresses' => $this->emailAddresses,
+            'location' => $this->location,
+            'webAddresses' => $this->webAddresses,
+        ];
+    }
+
+    protected function castArray(string $fieldName): ?string
+    {
+        return match($fieldName) {
+            'telephones' => TelephoneData::class,
+            'webAddresses' => WebAddressData::class,
+            default => null,
+        };
+    }
+}
+```

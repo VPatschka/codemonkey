@@ -1,0 +1,25 @@
+{
+  "name": "langtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "legacy": "npx ts-node src/generate/legacy/index.ts",
+    "generate": "npx ts-node src/generate/generalized/index.ts",
+    "check": "npx ts-node src/generate/generalized/check.ts",
+    "assistant": "npx ts-node src/generate/generalized/assistant.ts",
+    "tuning": "npx ts-node src/generate/generalized/prepareFineTuning.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "langchain": "^0.0.196",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
+  }
+}

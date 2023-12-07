@@ -1,0 +1,20 @@
+{
+  "GridDetailSection": {
+    "type": "object",
+    "properties": {
+      "Title": {
+        "type": "string"
+      },
+      "Items": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/GridItemDTO"
+        }
+      },
+      "SectionType": {
+        "$ref": "#/components/schemas/DetailSectionType"
+      }
+    },
+    "additionalProperties": false
+  }
+}

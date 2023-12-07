@@ -1,0 +1,23 @@
+{
+  "MatchingSummary": {
+    "type": "object",
+    "properties": {
+      "Score": {
+        "type": "integer"
+      },
+      "Sections": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Section"
+        }
+      },
+      "ReverseSections": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Section"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

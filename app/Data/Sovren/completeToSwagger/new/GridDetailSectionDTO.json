@@ -1,0 +1,17 @@
+```json
+"GridDetailSectionDTO": {
+  "type": "object",
+  "properties": {
+    "Title": {
+      "type": "string"
+    },
+    "Items": {
+      "$ref": "#/components/schemas/GridItemDTO"
+    },
+    "SectionType": {
+      "$ref": "#/components/schemas/DetailSectionType"
+    }
+  },
+  "additionalProperties": false
+}
+```

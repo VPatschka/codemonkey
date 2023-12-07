@@ -1,0 +1,14 @@
+{
+  "ListItemDTO": {
+    "type": "object",
+    "properties": {
+      "Title": {
+        "type": "string"
+      },
+      "IsPositive": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+}

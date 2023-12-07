@@ -1,0 +1,20 @@
+{
+  "EvidenceDetailSectionDTO": {
+    "type": "object",
+    "properties": {
+      "Title": {
+        "type": "string"
+      },
+      "EvidenceType": {
+        "$ref": "#/components/schemas/EvidenceType"
+      },
+      "Description": {
+        "type": "string"
+      },
+      "SectionType": {
+        "$ref": "#/components/schemas/DetailSectionType"
+      }
+    },
+    "additionalProperties": false
+  }
+}
