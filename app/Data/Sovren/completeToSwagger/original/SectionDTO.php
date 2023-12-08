@@ -13,6 +13,13 @@ use Spatie\LaravelData\DataCollection;
 
 class SectionDTO extends Data
 {
+    /**
+     * @param SectionType $type
+     * @param string $title
+     * @param float $score
+     * @param string $summary
+     * @param DataCollection<DetailSectionDTO> $detailSections
+     */
     public function __construct(
         public SectionType $type,
         public string $title,

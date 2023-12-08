@@ -6,6 +6,13 @@ import { HumanMessage } from 'langchain/schema'
 import { CLIParameters } from '../helpers/cli'
 import path from 'path'
 
+/**
+ * Takes list of already existing files and generates new ones based on prompts
+ * Uses "output" function in module configuration to determine whole output file path
+ *
+ * @param module
+ * @param configuration
+ */
 export async function run(module: RefactoringModuleConfiguration, configuration: CLIParameters) {
   console.log('Running refactoring generator')
 

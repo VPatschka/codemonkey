@@ -25,6 +25,30 @@ use Spatie\LaravelData\Optional;
 
 class UpdateCandidateDTO extends Data
 {
+    /**
+     * @param string|Optional|null $firstName
+     * @param string|Optional|null $lastName
+     * @param int|Optional|null $employerId
+     * @param string|Optional|null $jobTitle
+     * @param string|Optional|null $profileUrl
+     * @param array|Optional $industries
+     * @param array|Optional $markets
+     * @param array|Optional $languages
+     * @param array|Optional $skills
+     * @param array|Optional $specialisms
+     * @param AddressDTO|Optional|null $address
+     * @param DataCollection<TargetLocationDTO>|Optional $targetLocation
+     * @param int|Optional|null $candidateStatus
+     * @param DataCollection<PhoneNumberDTO>|Optional $phoneNumber
+     * @param DataCollection<EmailDTO>|Optional $email
+     * @param array|Optional $contractType
+     * @param array|Optional $seniority
+     * @param array|Optional $certifications
+     * @param int|Optional|null $source
+     * @param int|Optional|null $gdpr
+     * @param int|Optional|null $contactStatus
+     * @param bool|Optional $isWorldwide
+     */
     public function __construct(
         public null|string|Optional $firstName,
         public null|string|Optional $lastName,

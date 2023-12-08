@@ -14,6 +14,11 @@ use Spatie\LaravelData\DataCollection;
 
 class ListDetailSectionDTO extends DetailSectionDTO
 {
+    /**
+     * @param string $title
+     * @param DataCollection<ListItemDTO> $items
+     * @param DetailSectionType $sectionType
+     */
     public function __construct(
         public string $title,
         #[DataCollectionOf(ListItemDTO::class)]

@@ -6,6 +6,12 @@ import { HumanMessage, AIMessage } from 'langchain/schema'
 import { CLIParameters } from '../helpers/cli'
 import path from 'path'
 
+/**
+ * Altered hard-coded runner for spatieData, that adds examples to improve the quality of the generated files
+ *
+ * @param module
+ * @param configuration
+ */
 export async function run(module: SwaggerModuleConfiguration, configuration: CLIParameters) {
   console.log('Running swagger generator')
 
@@ -29,14 +35,11 @@ export async function run(module: SwaggerModuleConfiguration, configuration: CLI
 
   const baseMessages = [
     ...createMessageList(
-      await getPromptFromFile('system'),
+      await getPromptFromFile('system_with_comments'),
       [module.task, module.template]
     ),
     ...addTestMessages()
   ]
-
-  // console.log(baseMessages)
-  // return
 
   const generateFilePrompt = PromptTemplate.fromTemplate(module.schemaTemplate)
   // for (const schemaName in { 'EvidenceType': ''  }) {
@@ -53,6 +56,7 @@ export async function run(module: SwaggerModuleConfiguration, configuration: CLI
       }) })
     ])
 
+
     const { content } = result as { content: string }
 
     if (module.outputType === 'single') {
@@ -64,8 +68,8 @@ export async function run(module: SwaggerModuleConfiguration, configuration: CLI
 }
 
 function addTestMessages() {
-  const originalPath = '/Users/vojtechpatschka/PhpstormProjects/langtest/app/Data/Sovren/completeToSwagger/original/'
-  const newPath = '/Users/vojtechpatschka/PhpstormProjects/langtest/app/Data/Sovren/completeToSwagger/new/'
+  const originalPath = '/Users/vojtechpatschka/PhpstormProjects/codemonkey/app/Data/Sovren/completeToSwagger/original/'
+  const newPath = '/Users/vojtechpatschka/PhpstormProjects/codemonkey/app/Data/Sovren/completeToSwagger/new/'
 
   const files = [
     'DetailSectionDTO.php',
@@ -76,7 +80,7 @@ function addTestMessages() {
   ]
 
   return files.flatMap(file => [
-    new HumanMessage({ content: fs.readFileSync(path.join(originalPath, file), 'utf8') }),
-    new AIMessage({ content: fs.readFileSync(path.join(newPath, file.replace(/(DTO)?\.php/, '.json')), 'utf8') })
+    new HumanMessage({ content: fs.readFileSync(path.join(newPath, file.replace(/(DTO)?\.php/, '.json')), 'utf8') }),
+    new AIMessage({ content: fs.readFileSync(path.join(originalPath, file), 'utf8') })
   ])
 }

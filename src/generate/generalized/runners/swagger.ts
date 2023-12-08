@@ -6,6 +6,13 @@ import { HumanMessage, AIMessage } from 'langchain/schema'
 import { CLIParameters } from '../helpers/cli'
 import path from 'path'
 
+/**
+ * Takes swagger file from module configuration, takes all components.schemas from it and generates file for each schema
+ * Schemas can be filtered by filterSchemas function in module configuration
+ *
+ * @param module
+ * @param configuration
+ */
 export async function run(module: SwaggerModuleConfiguration, configuration: CLIParameters) {
   console.log('Running swagger generator')
 

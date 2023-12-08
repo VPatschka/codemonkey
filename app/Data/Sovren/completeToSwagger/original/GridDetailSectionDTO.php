@@ -7,6 +7,11 @@ use Spatie\LaravelData\DataCollection;
 
 class GridDetailSectionDTO extends DetailSectionDTO
 {
+    /**
+     * @param string $title
+     * @param DataCollection<GridItemDTO> $items
+     * @param DetailSectionType $sectionType
+     */
     public function __construct(
         public string $title,
         #[DataCollectionOf(GridItemDTO::class)]

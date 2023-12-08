@@ -1,7 +1,6 @@
 import { ChatOpenAI } from 'langchain/chat_models/openai'
 import { BaseMessage, HumanMessage, LLMResult, SystemMessage } from 'langchain/schema'
 import { TextLoader } from 'langchain/document_loaders/fs/text'
-import { CLIParameters } from './cli'
 
 export type ChatModels = 'gpt-4-1106-preview' | 'gpt-3.5-turbo-1106'
 

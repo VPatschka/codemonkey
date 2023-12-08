@@ -16,9 +16,9 @@ type FineTuningRow = {
 const createMessage = (content: string, role: ChatRole = 'user'): FineTuningMessage => ({ content, role })
 
 async function addTestMessages() {
-  const originalPath = '/Users/vojtechpatschka/PhpstormProjects/langtest/app/Data/Sovren/completeToSwagger/original/'
-  const newPath = '/Users/vojtechpatschka/PhpstormProjects/langtest/app/Data/Sovren/completeToSwagger/new/'
-  const modulePath = '/Users/vojtechpatschka/PhpstormProjects/langtest/app/Data/Sovren/spatieData/spatieData.codemonkey.ts'
+  const originalPath = '/Users/vojtechpatschka/PhpstormProjects/codemonkey/app/Data/Sovren/completeToSwagger/original/'
+  const newPath = '/Users/vojtechpatschka/PhpstormProjects/codemonkey/app/Data/Sovren/completeToSwagger/new/'
+  const modulePath = '/Users/vojtechpatschka/PhpstormProjects/codemonkey/app/Data/Sovren/spatieData/spatieData.codemonkey.ts'
 
   const files = [
     'DetailSectionDTO.php',
@@ -33,7 +33,7 @@ async function addTestMessages() {
     'SectionType.php',
   ]
 
-  const system = await getPromptFromFile('system')
+  const system = await getPromptFromFile('spatie')
   const module = await import(modulePath)
   const { task, template } = module
 
@@ -48,10 +48,8 @@ async function addTestMessages() {
       messages:
         [
           createMessage(system, 'system'),
-          createMessage(task),
-          createMessage(template),
-          createMessage(inputFileContent),
-          createMessage(outputFileContent, 'assistant'),
+          createMessage(outputFileContent, 'user'),
+          createMessage(inputFileContent, 'assistant'),
         ],
     })
   }

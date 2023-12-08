@@ -6,6 +6,12 @@ use Spatie\LaravelData\Optional;
 
 class EvidenceDetailSectionDTO extends DetailSectionDTO
 {
+    /**
+     * @param string $title
+     * @param EvidenceType $evidenceType
+     * @param string|Optional $description
+     * @param DetailSectionType $sectionType
+     */
     public function __construct(
         public string $title,
         public EvidenceType $evidenceType,

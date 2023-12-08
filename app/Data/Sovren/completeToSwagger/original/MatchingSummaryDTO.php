@@ -10,6 +10,11 @@ use Spatie\LaravelData\DataCollection;
 
 class MatchingSummaryDTO extends Data
 {
+    /**
+     * @param int $score
+     * @param DataCollection<SectionDTO> $sections
+     * @param DataCollection<SectionDTO> $reverseSections
+     */
     public function __construct(
         public int $score,
         #[DataCollectionOf(SectionDTO::class)]

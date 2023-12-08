@@ -9,26 +9,26 @@ require('dotenv').config()
 export type ModuleConfiguration = SwaggerModuleConfiguration | RefactoringModuleConfiguration
 
 export type BaseModuleConfiguration = {
-  task: string,
-  template: string,
-  output: (schemaName: string) => string,
-  configDirectory: string,
-  configFileName: string,
-  model: ChatModels
+  task: string, // added as first user prompt, eg: 'Create typescript types from Sovren swagger schemas'
+  template: string, // added as second user prompt, used to describe the resulting file
+  output: (schemaName: string) => string, // takes the schemaName and allows to change the output file name from it
+  configDirectory: string, // generated automatically
+  configFileName: string, // generated automatically
+  model: ChatModels // model used for chat
 }
 
 export type SwaggerModuleConfiguration = BaseModuleConfiguration & {
-  sourceFile: string,
-  schemaTemplate: string,
-  outputType: 'single' | 'multiple',
+  sourceFile: string, // swagger file, taken from root directory, can be changed
+  schemaTemplate: string, // template for each schema, eg: 'Create Typescript interface with name "{schemaName}". The definition:\n{schemaDefinition}'
+  outputType: 'single' | 'multiple', // single - all schemas in one file, multiple - each schema in separate file
   type: 'swagger',
-  protectedFiles: string[],
-  filterSchemas?: (schemas: any) => any,
+  protectedFiles: string[], // files that should not be deleted when generating again, not used now
+  filterSchemas?: (schemas: any) => any, // used to filter schemas, so you don't need to generate all of them
 }
 
 export type RefactoringModuleConfiguration = BaseModuleConfiguration & {
-  sourceFiles: string[],
-  filePromptTemplate: string,
+  sourceFiles: string[], // files that will be refactored, have to include absolute path
+  filePromptTemplate: string, // template for each file, eg: 'Refactor file {sourceFile}: {sourceFileContents}'
   type: 'refactoring',
 }
 

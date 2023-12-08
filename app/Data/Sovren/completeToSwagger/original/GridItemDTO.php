@@ -7,19 +7,15 @@ use Spatie\LaravelData\Data;
 
 class GridItemDTO extends Data
 {
+    /**
+     * @param string $title
+     * @param bool $isInResume
+     * @param bool $isInJob
+     */
     public function __construct(
         public string $title,
         public bool $isInResume,
         public bool $isInJob,
     ) {
-    }
-
-    public static function fromTaxonomy(Taxonomy $taxonomy, bool $isResumeOrigin): self
-    {
-        return new self(
-            $taxonomy->name,
-            $taxonomy->matched || $isResumeOrigin,
-            $taxonomy->matched || !$isResumeOrigin,
-        );
     }
 }
