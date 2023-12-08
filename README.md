@@ -9,16 +9,16 @@ The code is not very clear now as it was written in a hurry, but it works
 ## Usage
 Add your OpenAI key to .env file
 
-Create file with <name>.codemonkey.ts where you define your prompts and other variables
-according to SwaggerModuleConfiguration or RefactoringModuleConfiguration in generated/index.ts
-Then you'll use the <name> for the "generate" command
+Create file with [name].codemonkey.ts where you define your prompts and other variables
+according to SwaggerModuleConfiguration or RefactoringModuleConfiguration in generated/index.ts\
+Then you'll use the [name] for the "generate" command
 
 Your codemonkey files has to be in folder defined in codemonkey.json
 
 ## Commands
 ### Generate files
 ```bash
-npm run generate -- <name>
+npm run generate -- [name]
 ```
 
 You can try running examples in app/Data/Sovren folder\
@@ -29,7 +29,7 @@ The <name> doesn't have to containt file path
 npm run check
 ```
 
-### Prepare .jsonl file for finetuning :warning: hard-coded for spatieData
+### Prepare .jsonl file for finetuning :warning: hard-coded for completeToSwagger folder
 ```bash
 npm run tuning
 ```
